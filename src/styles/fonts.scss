@@ -1,0 +1,206 @@
+$freight: "freight-sans-pro";
+$frank: "frank-new";
+$roboto: "roboto-condensed";
+
+$lt: 300;
+$reg: 400;
+$med: 500;
+$semi: 600;
+$bold: 700;
+
+body {
+  font-family: $freight;
+  font-weight: $lt;
+  font-size: 1.4em;
+  line-height: 1.35em;
+}
+
+a {
+  font-weight: $semi;
+}
+
+i, em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: $semi;
+}
+
+// Begin end content
+.begin-end-content {
+  font-size: 1.6rem;
+  line-height: 1.4em;
+}
+
+// Nav
+.nav-link {
+  font-family: $roboto;
+  font-weight: $reg;
+  font-size: 0.85rem;
+  line-height: 1.0em;
+}
+
+h1, h2, h3 {
+  font-family: $frank;
+}
+
+h1, h3 {
+  font-weight: $reg;
+}
+
+h1 {
+  font-size: 2.4rem;
+  letter-spacing: -0.038em;
+  line-height: 1.1em;
+  padding: 0.3em 0 0.4em;
+}
+
+h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-weight: $med;
+  font-size: 1.6rem;
+  line-height: 1.3em;
+}
+
+h3 {
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+}
+
+// Video
+.card.video-caption {
+  font-family: $roboto;
+  font-weight: $lt;
+  font-size: 1.0rem;
+  line-height: 1.4em;
+}
+
+// Accordions
+.accordion {
+  .card-header {
+    h4 {
+      font-size: 1.3rem;
+      font-style: italic;
+    }
+  }
+}
+
+
+// Values
+.values-scale {
+  font-family: $frank;
+}
+
+h3.values-scale-heading {
+  font-weight: $med;
+  font-family: $frank;
+}
+
+.btn-value {
+  font-size: 1.1rem;
+}
+
+.values-scale-explanation {
+  font-size: 1.2rem;
+}
+
+.answers {
+  font-weight: $reg;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.explanation {
+  font-weight: $semi;
+  strong {
+    font-weight: $bold;
+  }
+}
+
+.scale-label {
+  font-size: 1.0rem;
+}
+
+// Content module
+.content-module {
+  font-weight: $reg;
+  .h5 {
+    font-family: $frank;
+    font-weight: $med;
+    font-size: 1.5rem;
+  }
+}
+
+.table.comparison-table {
+  th {
+    font-family: $frank;
+    font-weight: $reg;
+    font-size: 1.2rem;
+    line-height: 1.1em;
+  }
+  td {
+    font-size: 1.3rem;
+    font-weight: $reg;
+    line-height: 1.2em;
+  }
+}
+
+.btn-da {
+  font-family: $frank;
+  font-weight: $reg;
+  font-size: 1.3rem;
+  line-height: 1.1em;
+}
+
+// Choose a test
+.test-explanation {
+  h6 {
+    font-family: $frank;
+    font-weight: $semi;
+    font-size: 1.2rem;
+  }
+}
+
+// Summary
+.summary-value-number {
+  line-height: 1.5em;
+  font-family: $frank;
+  font-size: 1.4rem;
+}
+
+.summary-value-description {
+  font-family: $freight;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.2em;
+}
+
+.summary-email-card {
+  font-weight: $med;
+}
+
+// Notes
+.notes-header {
+  font-family: $frank;
+}
+
+.notes-body {
+  textarea.form-control {
+    font-size: 1.3rem;
+    line-height: 1.3em;
+  }
+  textarea[placeholder] {
+    font-style: italic;
+  }
+}
+
+  footer {
+  font-family: $roboto;
+  font-size: 0.8rem;
+  line-height: 1.3em;
+  font-weight: $lt;
+}

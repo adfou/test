@@ -1,0 +1,46 @@
+// Grid
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 728px,
+  lg: 800px,
+  xl: 1140px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 680px,
+  lg: 770px,
+  xl: 1200px
+);
+
+@import "~bootstrap/scss/bootstrap";
+
+$global-margin: 15px;
+$title-container-lg: 787px; 
+$left-margin-container-lg: 676px; 
+$content-container-lg: 614px;
+
+.title-container {
+  width: 100%;
+}
+
+.left-margin-container {
+  width: $left-margin-container-lg;
+}
+
+.content-container {
+  width: $content-container-lg;
+  margin: 0 auto;
+}
+
+.left-page-title-margin {
+  width: 100%;
+  margin-left: 6%;
+}
+
+.left-content-margin {
+  margin-left: $left-margin-container-lg - $content-container-lg
+  -$global-margin;;
+}
+

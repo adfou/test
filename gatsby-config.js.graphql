@@ -1,0 +1,35 @@
+require("dotenv").config();
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
+module.exports = {
+  siteMetadata: {
+    title: `MGH Cancer Genetics Decision Aid`,
+    siteUrl: `https://www.yourdomain.tld`
+  },
+  plugins: [
+    `gatsby-plugin-sass`, 
+    `gatsby-plugin-offline`, 
+    `gatsby-plugin-sharp`, 
+    `gatsby-transformer-sharp`, 
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `Drupal`,
+        fieldName: `mghda`,
+        url: process.env.DRUPAL_API_URL,
+        headers: {
+          Authorization: `Bearer: ${process.env.JWT_TOKEN}`,
+        },
+      }
+        // DEV
+        //baseUrl: process.env.DRUPAL_API_URL,
+        // STAGE
+        //baseUrl: `http://api.mghda.hccstaging.org`,
+        // PROD
+        //baseUrl: `https://api.mghcancergeneticsda.com`,
+    }
+  ]
+};

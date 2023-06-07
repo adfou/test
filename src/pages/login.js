@@ -21,11 +21,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (values) => {
-      console.log("Is this thing working?");
       if (Object.entries(values).length == 3) {
         console.log(values);
-        //dispatch( setUser(values) );
-        //navigate("/welcome");
       }
     }
   }

@@ -133,6 +133,7 @@ body {
 
 .title-border {
   border-bottom: $med-yellow 4px solid;
+  margin-top: 80px;
 }
 
 .blue-bkgrd {
@@ -206,7 +207,7 @@ video {
       background-repeat: no-repeat;
       font-weight: $med;
       font-style: italic;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       padding-top: 22px;
       margin-top: 5px;
       color: $accordion-header;
@@ -612,8 +613,8 @@ a {
 .btn:hover,
 .btn:focus,
 .btn:active {
-  color: #fff; /* set the text color to white on hover, focus, and active states */
-  background-color: $btn-bkgrd; /* set the background color to black on hover, focus, and active states */
-  border-color: #fff; /* set the border color to black on hover, focus, and active states */
+  color: green; /* set the text color to white on hover, focus, and active states */
+  background-color: blue; /* set the background color to black on hover, focus, and active states */
+  border-color: red; /* set the border color to black on hover, focus, and active states */
 }
 

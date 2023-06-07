@@ -28,7 +28,7 @@ const SummaryValue = ({ num, heading, leftLabel, rightLabel, value, lang}) => {
             <div className="summary-value-text-container">
               <h3 className="values-scale-heading"><span className="number">{ num }</span>{ ". " + heading }</h3>
               <div className="summary-value-description">
-                <p>en una escala de <strong>1 ({ leftLabel })</strong> to <strong>7 ({ rightLabel }), </strong> you chose:</p>
+                <p>en una escala de <strong>1 ({ leftLabel })</strong> a <strong>7 ({ rightLabel }), </strong> usted eligió:</p>
               </div>
             </div>
             <div className="summary-value-number-container d-flex float-right justify-content-end">

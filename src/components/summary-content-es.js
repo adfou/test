@@ -36,6 +36,7 @@ const SummaryContentES = ({ user, children }) => {
       <p>Esto es lo que decidió hacer a continuación:</p>
       <TestDecision test={ test }>
         { (resp, field, value, path, testSelected) => {
+          if(value ==="no test selected"){value = "Ninguna prueba seleccionada"}
           return (
             <>
               <div className="test-decision">

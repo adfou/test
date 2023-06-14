@@ -550,8 +550,6 @@ footer {
   padding-top: 0;
 }
 
-.summary-email-card {
-}
 
 // End
 .end-screen-title {
@@ -613,8 +611,8 @@ a {
 .btn:hover,
 .btn:focus,
 .btn:active {
-  color: green; /* set the text color to white on hover, focus, and active states */
-  background-color: blue; /* set the background color to black on hover, focus, and active states */
-  border-color: red; /* set the border color to black on hover, focus, and active states */
+  color: #fff; /* set the text color to white on hover, focus, and active states */
+  background-color: $btn-bkgrd; /* set the background color to black on hover, focus, and active states */
+  border-color: #fff; /* set the border color to black on hover, focus, and active states */
 }
 

@@ -61,7 +61,7 @@ class EmailSubmitterES extends Component {
       .then( (response) => {
         this.setState({ 
           confirm: true,
-          message: "Your email was sent"
+          message: "Su correo electrónico fue enviado"
         });
       })
       .catch( (err) => {

@@ -20,8 +20,7 @@ const HideShowContentModule = ({ pieces, visibility ,lang}) => {
   else{
     var placeholder = "Elija entre las opciones anteriores"
   }
-  console.log("placeholder")
-  console.log(placeholder)
+
   return (
     <Card bsPrefix="card test-choices content-module">
       <Card.Body>

@@ -11,9 +11,8 @@ const AccordionHeading = ({ heading, subheading, eventKey, callback,lang }) => {
     () => callback && callback(eventKey),
   );
   const isCurrentEventKey = activeEventKey === eventKey;
-  if(lang = "es"){
-
-  }
+  
+  console.log(lang)
   const iconDisplay = lang === "es" ? getIconDisplay_es(isCurrentEventKey) : getIconDisplay(isCurrentEventKey);
 
   return (

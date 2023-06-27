@@ -20,8 +20,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const DAModal = ({ triggerModal, showModal, title, children ,lang}) => {
- console.log("modal language :"+lang)
- console.log('children :'+children)
+ 
  if(lang ==="en"){
   return (
     <Modal show={ showModal } onHide={ triggerModal } centered>

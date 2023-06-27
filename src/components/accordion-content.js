@@ -21,8 +21,9 @@ const AccordionContent = ({ accordions, className, cancerType ,lang}) => {
       accordions[4].relationships.field_cancer_type={name: 'Pancreatic'}
     }
   }
- 
- 
+
+
+  
   return accordions && (
     <Accordion>
       { accordions.map( (accordion, i) => {

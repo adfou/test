@@ -10,8 +10,7 @@ const LanguageSwitcher = ({ englishPath, spanishPath }) => {
     english: englishPath,
     Español: spanishPath
   }
-  console.log("---------language-----------")
-  console.log(languages)
+
   return (
     <div className="language-switcher d-flex justify-content-end">
       { Object.keys(languages).map( (lang) => {

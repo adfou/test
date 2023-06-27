@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setTestInput: (e) => {
+
       dispatch( setTestInput(toCamelCase(e.target.name), e.target.value, e.target.type) );
     }
   }
@@ -34,7 +35,6 @@ const MultChoiceSegment = ({ content, savedInput, setTestInput }) => {
     }
     
   }
-  
   return (
     <Form>
       { content.field_intro_to_options && <p>{ content.field_intro_to_options }</p> }

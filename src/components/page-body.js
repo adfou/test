@@ -24,14 +24,7 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent, can
   const vidUrl = getContent(video, "field_video");
   const vidPlaceholder = getContent(video, "field_video_still_image");
   page = page.slice(1);
-  console.log("----------intro---------------")
-  console.log(intro)
-  console.log("----------complexContent---------------")
-  console.log(complexContent)
-  console.log("----------page---------------")
-  console.log(page)
   const summary =(type,complexContent)=>{
-    console.log("in switch")
     switch(type){
       case 'summary' :
         return(

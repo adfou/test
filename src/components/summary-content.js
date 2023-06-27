@@ -7,11 +7,12 @@ import EmailSubmitter from "./email-submitter";
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    lang: state.user.lang
   }
 }
 
-const SummaryContent = ({ user, children }) => {
+const SummaryContent = ({ user, children,lang }) => {
   const test = user.test;
   const values = user.values;
   let showNextSteps = false;
@@ -28,7 +29,7 @@ const SummaryContent = ({ user, children }) => {
             leftLabel={ value.leftLabel }
             rightLabel={ value.rightLabel }
             value={ value.value }
-            lang= {'eng'}
+            lang= {'en'}
           />
         );
       })}

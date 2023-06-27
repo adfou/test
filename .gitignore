@@ -5,3 +5,6 @@ public
 .*.swp
 yarn.lock
 package-lock.json
+
+# Local Netlify folder
+.netlify

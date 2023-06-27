@@ -48,6 +48,9 @@ const abbreviate = (test) => {
   if(tes_t[0] == 'S'){ return 'yes'}
   if(tes_t == 'No,'){return 'no'}
   if(tes_t == 'No '){return 'im'}
+  if(tes_t === 'Pru'){
+    return 'test'}
+  
   return test.split(" ")[0].toLowerCase().replace(/\W/g, "");
 }
 

@@ -51,7 +51,7 @@ const user = (state = initialState, action) => {
         if (action.inputName === "doYouWantGeneticTest") {
           
           handleVisibility(stateCopy, response);
-        }
+        } 
         stateCopy.test[action.inputName] = action.inputValue;
       }
       applyTestLogic(stateCopy, response);
@@ -82,11 +82,14 @@ const handleVisibility = (stateCopy, response) => {
 }
 
 const applyTestLogic = (stateCopy, response) => {
-  const forceYes = "Yes, I want genetic testing";
+  var forceYes = "Yes, I want genetic testing";
+  if(stateCopy.lang ==='es'){
+    forceYes = "Sí, quiero las pruebas genéticas"
+  }
   switch(response) {
     case "no":
     case "im":
-      stateCopy.test.testTypes = null;
+      stateCopy.test.testTypes = null;  
       stateCopy.test.notSureWhichTest = [];
     case "no":
     case "yes":

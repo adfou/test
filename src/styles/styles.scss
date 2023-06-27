@@ -115,7 +115,7 @@ body {
   background-color: #fff;
   height: 26px;
   width: 27px;
-  background-image: url("../images/menu_icons.svg");
+  background-image: url("../images/menu_icons.png");
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -211,7 +211,7 @@ video {
       padding-top: 22px;
       margin-top: 5px;
       color: $accordion-header;
-      background-image: url("../images/more_less.svg");
+      background-image: url("../images/more_less.png");
     }
     .icon-open {
       background-position: left top;
@@ -356,6 +356,7 @@ video {
 
 .explanation {
   margin-bottom: 0;
+  line-height: 1.2em;
 }
   
 // Content module

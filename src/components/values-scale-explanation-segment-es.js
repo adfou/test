@@ -7,7 +7,7 @@ const ValuesScaleExplanationSegmentES = ({ direction }) => {
         Respuestas en esta dirección:
       </p>
       <p className="explanation">
-      Las pruebas genéticas pueden { direction === "left" ? <strong>not</strong> : "" } Ser adecuada para ti
+      Las pruebas genéticas pueden { direction === "left" ? <strong>no</strong> : "" } Ser adecuada para ti
       </p>
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 
 const SummaryValue = ({ num, heading, leftLabel, rightLabel, value, lang}) => {
+
   if(lang ==='en'){
   return (
     <Card bsPrefix="card mb-4">

@@ -25,6 +25,8 @@ const mapDispatchToProps = (dispatch) => {
 const Begin = ({ data, initializeMenu,setLang }) => {
   const drupalMenu = useDrupalMenu("en");
   setLang('en')
+  
+ 
   const fields = data.english;
   return (
     <div onLoad={ initializeMenu(drupalMenu) }>
@@ -33,6 +35,8 @@ const Begin = ({ data, initializeMenu,setLang }) => {
         <LanguageSwitcher
          englishPath={ data.english.path.alias }
          spanishPath={ '/es-begin' }
+         htPath={ '/ht-begin' }
+         ptPath={"/pt-begin"}
         />
         <div className="begin-end-content">
           { setHTML(fields.body.processed) }
@@ -66,6 +70,32 @@ export const query = graphql`
       nodeArticle(
         drupal_internal__nid: {eq: 20} 
         langcode: {eq: "es"}
+      ) {
+        title
+        body {
+          processed
+        }
+        path {
+          alias
+        }
+      }
+      haiten: 
+      nodeArticle(
+        drupal_internal__nid: {eq: 20} 
+        langcode: {eq: "ht"}
+      ) {
+        title
+        body {
+          processed
+        }
+        path {
+          alias
+        }
+      }
+      Portuguese: 
+      nodeArticle(
+        drupal_internal__nid: {eq: 20} 
+        langcode: {eq: "pt-pt"}
       ) {
         title
         body {

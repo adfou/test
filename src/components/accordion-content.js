@@ -20,8 +20,17 @@ const AccordionContent = ({ accordions, className, cancerType ,lang}) => {
       accordions[3]["relationships"]["field_cancer_type"]={name: 'Ovarian'}
       accordions[4].relationships.field_cancer_type={name: 'Pancreatic'}
     }
+    if(accordions[0]["field_accordion_heading"] == 'Um gene é um pequeno pedaço de ADN (código genético) com uma função específica a desempenhar no seu corpo.'){
+      accordions[3]["relationships"]["field_cancer_type"]={name: 'Ovarian'}
+      accordions[4].relationships.field_cancer_type={name: 'Pancreatic'}
+    }
   }
-
+  if(accordions != null && accordions.length === 5){
+    if(accordions[0]["field_accordion_heading"] == 'Yon jèn se yon ti mòso ADN (kòd jenetik), ki gen yon travay espesifik pou l fè, nan kò ou.'){
+      accordions[3]["relationships"]["field_cancer_type"]={name: 'Ovarian'}
+      accordions[4].relationships.field_cancer_type={name: 'Pancreatic'}
+    }
+  }
 
   
   return accordions && (

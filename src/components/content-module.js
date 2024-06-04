@@ -13,32 +13,33 @@ const mapStateToProps = (state) => {
 }
 
 const ContentModule = ({ content, cancerType }) => {
- 
   let modules = content.field_content_module;
   let hideShowContent = [];
-  if(modules.length == 6 && (modules[0]["field_module_title"] == "Opciones de pruebas genéticas")){
-     
+  if(modules.length == 6 && (modules[0]["field_module_title"] === "Opciones de pruebas genéticas" || modules[0]["field_module_title"] === "Opsyon tès jenetik" || modules[0]["field_module_title"] ==="Opções de testes genéticos")){
+  
      modules[0].relationships["field_cancer_type"]={'name': 'Ovarian'}
      modules[1].relationships["field_cancer_type"]={'name': 'Pancreatic'}
      modules[4].relationships["field_cancer_type"]={'name': 'Ovarian'}
      modules[5].relationships["field_cancer_type"]={'name': 'Pancreatic'}
   }
   if (modules.length > 0 && modules[0].field_module_title) {
- 
+  
     if (modules[1] && modules[1].relationships.hasOwnProperty("field_it_s_your_choice_label") &&
         modules[1].relationships["field_it_s_your_choice_label"]) {
-      
+  
       hideShowContent = modules.slice(1);
       modules = [JSON.parse(JSON.stringify(modules[0]))];
     }
     
     else{
-      if(modules[1] && modules[1].relationships.hasOwnProperty("field_it_s_your_choice_label") && modules[1]["field_module_title"] == 'Ahora veamos las opciones de pruebas'){
-        
+
+      if(modules[1] && modules[1].relationships.hasOwnProperty("field_it_s_your_choice_label") && (modules[1]["field_module_title"] === 'Ahora veamos las opciones de pruebas' || modules[1]["field_module_title"] === 'Kounye a, ann gade opsyon tès yo' || modules[1]["field_module_title"] ==="Vejamos agora as opções de testes")){ //Tanpri, chwazi youn
+
         hideShowContent = modules.slice(1);
         modules = [JSON.parse(JSON.stringify(modules[0]))];
-        
+      
         hideShowContent.forEach((item, index) => {
+       
           
           //search for abrevation reduce 
           if(index == 0){hideShowContent[index].relationships["field_it_s_your_choice_label"] = {'name':"yes"}}
@@ -49,7 +50,7 @@ const ContentModule = ({ content, cancerType }) => {
        
       }
     }
-   
+
     return (
       <>
         { modules.map( (module, i) => {
@@ -65,7 +66,8 @@ const ContentModule = ({ content, cancerType }) => {
               <Card.Body>
                 <Card.Title>{ module.field_module_title }</Card.Title>
                 { segments.map( (segment, j) => {
-                  return (
+                  return ( 
+                    
                     <ContentModuleSegment 
                       key={ j }
                       segment={ segment }

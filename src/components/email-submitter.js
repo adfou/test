@@ -21,6 +21,7 @@ class EmailSubmitter extends Component {
   }
 
   sendEmail = (data, email = false, notes = false) => {
+
     if (this.props.type === "user" && !email) {
       this.setState({ 
         message: "You need to enter your email address",
@@ -44,12 +45,27 @@ class EmailSubmitter extends Component {
         nextSteps: data.test.notReadyToDecide && data.test.notReadyToDecide.length > 0 && data.test.notReadyToDecide.join(", ")
       },
       userValues: data.values,
-      notes
+      notes,
+      lang : this.props.data.lang
     };
     const json = JSON.stringify(payload);
-    //fetch("https://api.mghcancergeneticsda.com/sendmail.php",
+    const encoder = new TextEncoder();
+    const dataAsBytes = encoder.encode(json);
+    const utf8Decoder = new TextDecoder('utf-8');
+    const latin1Decoder = new TextDecoder('iso-8859-1');
+    const utf8Decoded = utf8Decoder.decode(dataAsBytes);
+    const latin1Decoded = latin1Decoder.decode(dataAsBytes);
+    
+    if (utf8Decoded === json) {
+      console.log("Data is encoded in UTF-8");
+    } else if (latin1Decoded === json) {
+      console.log("Data is encoded in ISO-8859-1 (Latin-1)");
+    } else {
+      console.log("Unable to determine encoding");
+    }
+    fetch("https://api.mghcancergeneticsda.com/sendmail.php",
     //fetch("http://api.mghda.hccstaging.org/sendmail.php",
-    fetch("http://apiv2.mghda.hccdev.org/sendmail.php",
+    //fetch("http://apiv2.mghda.hccdev.org/sendmail.php",
       {
         method: "post",
         headers: { 
@@ -59,6 +75,7 @@ class EmailSubmitter extends Component {
         body: json
       })
       .then( (response) => {
+        console.log(response)
         this.setState({ 
           confirm: true,
           message: "Your email was sent"

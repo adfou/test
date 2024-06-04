@@ -30,7 +30,7 @@ module.exports = {
                 },
                 languageConfig: {
                     defaultLanguage: `en`,
-                    enabledLanguages: [`en`, `es`],
+                    enabledLanguages: [`en`, `es`, `ht`,`pt-pt`],
                     translatableEntities: [
                         `node--article`,
                         `node--decision_aid_page`,
@@ -42,8 +42,21 @@ module.exports = {
                         `paragraph--value`
                     ],
                     nonTranslatableEntities: [`file--file`],
-                }
+                },
+                skipFileDownloads:true,
             }
-        }
+        },
+        {
+            resolve: `gatsby-plugin-google-tagmanager`,
+            options: {
+              id: "GTM-MP9X6D8M",
+              // Include GTM in development.
+              // Defaults to false meaning GTM will only be loaded in production.
+              includeInDevelopment: true,
+              // datalayer to be set before GTM is loaded
+              // should be an object or a function that is executed in the browser
+              defaultDataLayer: { platform: "gatsby" },
+            },
+          }
     ]
 };

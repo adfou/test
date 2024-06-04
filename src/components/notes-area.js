@@ -28,6 +28,14 @@ const NotesArea = ({ notes, handleChange ,lang}) => {
      placeholder = "Escriba sus preguntas o comentarios aquí. Podrás revisarlos más tarde."
      title ="Notas"
   }
+  if (lang == 'ht'){
+    placeholder = "Ekri kesyon ou yo, oswa komantè w yo, la a. W ap kapab revize yo apre."
+    title ="Nòt yo"
+   }
+   if (lang == 'pt-pt'){
+    placeholder = "Anote as suas perguntas ou comentários aqui. Poderá relê-los mais tarde."
+    title ="Notas"
+   }
   
   
   

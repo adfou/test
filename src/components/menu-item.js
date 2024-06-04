@@ -6,8 +6,11 @@ import MenuPathUpdater from "../containers/menu-path-updater";
 import Nav from "react-bootstrap/Nav";
 
 const MenuItem = ({ name, url, visited, current, setNewCurrent }) => {
- 
   const path = urlify(name);
+  if(name == "bem-vindo"){
+    name = "Bem-vindo(a)"
+  }
+
   const currPath = current.path.slice(1);
   const nodeId = getNodeId(url);
   const vis = visited ? " visited" : "";

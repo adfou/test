@@ -23,14 +23,22 @@ const MultChoiceSegment = ({ content, savedInput, setTestInput }) => {
 
   const type = content.field_can_choose_multiple ? "checkbox" : "radio";
   var name ="test-types";
+
   if (content.relationships.field_relevance != undefined){
   name = urlify(content.relationships.field_relevance.name);
   
   }
   else {
-    if (content.field_option_name[0] == "Hablar con mi oncólogo"){name = "not-ready-to-decide"}
-    if (content.field_option_name[0] == "Sí, quiero las pruebas genéticas"){name = "do-you-want-genetic-test";}
+    
+    if (content.field_option_name[0] == "Conversar com o meu oncologista" || content.field_option_name[0] == "Hablar con mi oncólogo" || content.field_option_name[0] == "Pale ak onkològ mwen an"){name = "not-ready-to-decide" 
+     }
+
+
+    if (content.field_option_name[0] == "Sí, quiero las pruebas genéticas" || content.field_option_name[0] == "Wi, mwen vle fè tès jenetik." || content.field_option_name[0] == "Sim, pretendo fazer um teste genético"){name = "do-you-want-genetic-test";
+    }
+
     if (content.field_option_name[0] == "Prueba A. Prueba del gen del cáncer pancreático" || content.field_option_name[0] == "Prueba A. Prueba del gen del cáncer de ovario" ){
+  
     name = "test-types";
     }
     

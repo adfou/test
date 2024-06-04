@@ -18,7 +18,9 @@ const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.admin.isLoggedIn,
     showError: state.admin.showError,
-    user: state.user
+    user: state.user,
+    lang : state.user.lang
+    
   }
 }
 
@@ -37,7 +39,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-const Admin = ({ isLoggedIn, showError, user, handleSubmit, handleLogout }) => {
+const Admin = ({ isLoggedIn, showError, user, handleSubmit, handleLogout ,lang}) => {
   return (
     <>
     <Container bsPrefix="container mt-5">
@@ -74,6 +76,7 @@ const Admin = ({ isLoggedIn, showError, user, handleSubmit, handleLogout }) => {
               leftLabel={ value.leftLabel }
               rightLabel={ value.rightLabel }
               value={ value.value }
+              lang={lang}
             />
           );
         })}

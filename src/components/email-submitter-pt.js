@@ -6,25 +6,8 @@ import Modal from "react-bootstrap/Modal"
 import PropTypes from "prop-types";
 
 
-function replaceSpanishCharacters(input) {
-  const replacements = {
-    'Á': '\u00C1', 'á': '\u00E1',
-    'É': '\u00C9', 'é': '\u00E9',
-    'Í': '\u00CD', 'í': '\u00ED',
-    'Ó': '\u00D3', 'ó': '\u00F3',
-    'Ú': '\u00DA', 'ú': '\u00FA',
-    'Ü': '\u00DC', 'ü': '\u00FC',
-    'Ñ': '\u00D1', 'ñ': '\u00F1'
-  };
 
-  let modifiedString = '';
-
-
-
-  return modifiedString;
-}
-
-class EmailSubmitterES extends Component {
+class EmailSubmitterPT extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,11 +19,12 @@ class EmailSubmitterES extends Component {
     this.setEmail = this.setEmail.bind(this);
     this.handleClose = this.handleClose.bind(this);
   }
-  
+
   sendEmail = (data, email = false, notes = false) => {
+
     if (this.props.type === "user" && !email) {
       this.setState({ 
-        message: "Tienes que introducir su dirección de correo electrónico",
+        message: "Deve inserir o seu endereço de e-mail",
         confirm: true
       });
       return;
@@ -59,36 +43,49 @@ class EmailSubmitterES extends Component {
         test: data.test.testTypes || false,
         notSure: data.test.notSureWhichTest && data.test.notSureWhichTest.length > 0 && data.test.notSureWhichTest.join(", "),
         nextSteps: data.test.notReadyToDecide && data.test.notReadyToDecide.length > 0 && data.test.notReadyToDecide.join(", ")
-        
       },
       userValues: data.values,
       notes,
       lang : this.props.data.lang
     };
-    let unicodeValue = data.test.doYouWantGeneticTest.charCodeAt(1);
-    const json = JSON.stringify(payload, null, 2);
+    const json = JSON.stringify(payload);
+    const encoder = new TextEncoder();
+    const dataAsBytes = encoder.encode(json);
+    const utf8Decoder = new TextDecoder('utf-8');
+    const latin1Decoder = new TextDecoder('iso-8859-1');
+    const utf8Decoded = utf8Decoder.decode(dataAsBytes);
+    const latin1Decoded = latin1Decoder.decode(dataAsBytes);
+    
+    if (utf8Decoded === json) {
+      console.log("Data is encoded in UTF-8");
+    } else if (latin1Decoded === json) {
+      console.log("Data is encoded in ISO-8859-1 (Latin-1)");
+    } else {
+      console.log("Unable to determine encoding");
+    }
     fetch("https://api.mghcancergeneticsda.com/sendmail.php",
     //fetch("http://api.mghda.hccstaging.org/sendmail.php",
     //fetch("http://apiv2.mghda.hccdev.org/sendmail.php",
       {
         method: "post",
         headers: { 
-          "Content-Type" : "application/json; charset=utf-8",
+          "Content-Type" : "application/json",
           "Accept" : "application/json" 
         },
         body: json
       })
       .then( (response) => {
+        console.log(response)
         this.setState({ 
           confirm: true,
-          message: "Su correo electrónico fue enviado"
+          message: "O sue e-mail foi enviado."
         });
       })
       .catch( (err) => {
         console.error("Error:", err);
         this.setState({ 
           confirm: true,
-          message: "Hubo un problema y no se pudo enviar tu correo electrónico"
+          message: "Houve um problema e o seu e-mail não pôde ser enviado"
         });
       });
   /*
@@ -116,7 +113,7 @@ class EmailSubmitterES extends Component {
           <div className="d-flex justify-content-around">      
               { this.props.type === "user" ? 
                 <Form.Control 
-                  placeholder="Tienes que introducir su dirección de correo electrónico"
+                  placeholder="Insira o seu endereço de e-mail"
                   type="email"
                   onChange={ (e) => this.setEmail(e.target.value) }  
                 /> : "" 
@@ -132,10 +129,10 @@ class EmailSubmitterES extends Component {
 }
 
 
-EmailSubmitterES.propTypes = {
+EmailSubmitterPT.propTypes = {
   type: PropTypes.string,
   data: PropTypes.object.isRequired,
   email: PropTypes.string
 }
 
-export default EmailSubmitterES;
+export default EmailSubmitterPT;

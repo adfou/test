@@ -12,8 +12,21 @@ const AccordionHeading = ({ heading, subheading, eventKey, callback,lang }) => {
   );
   const isCurrentEventKey = activeEventKey === eventKey;
   
-  console.log(lang)
-  const iconDisplay = lang === "es" ? getIconDisplay_es(isCurrentEventKey) : getIconDisplay(isCurrentEventKey);
+  var iconDisplay  =getIconDisplay(isCurrentEventKey);
+  switch(lang) {
+    case "es":
+      iconDisplay  =getIconDisplay_es(isCurrentEventKey);
+      break;
+    case "ht":
+      iconDisplay  =getIconDisplay_ht(isCurrentEventKey);
+      break;
+    case "pt-pt":
+      iconDisplay  =getIconDisplay_pt(isCurrentEventKey);
+      break;  
+    default:
+      iconDisplay= getIconDisplay(isCurrentEventKey);
+  }
+  //const iconDisplay = lang === "es" ? getIconDisplay_es(isCurrentEventKey) : getIconDisplay(isCurrentEventKey);
 
   return (
     <Card.Header onClick={ decoratedOnClick }>
@@ -35,10 +48,21 @@ const AccordionHeading = ({ heading, subheading, eventKey, callback,lang }) => {
       { style: "icon-close", text: "less" } :
       { style: "icon-open", text: "more" };
   }
+  //plis
   const getIconDisplay_es = (isOpen) => {
     return isOpen ?
       { style: "icon-close", text: "menos" } :
       { style: "icon-open", text: "más" };
+  }
+  const getIconDisplay_ht = (isOpen) => {
+    return isOpen ?
+      { style: "icon-close", text: "mwens" } :
+      { style: "icon-open", text: "plis" };
+  }
+  const getIconDisplay_pt = (isOpen) => {
+    return isOpen ?
+      { style: "icon-close", text: "menos " } :
+      { style: "icon-open", text: "mais" };
   }
 
 export default AccordionHeading;

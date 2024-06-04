@@ -5,12 +5,13 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import { ucFirst } from "../helpers";
 
-const LanguageSwitcher = ({ englishPath, spanishPath }) => {
+const LanguageSwitcher = ({ englishPath, spanishPath ,htPath,ptPath }) => {
   const languages = {
     english: englishPath,
-    Español: spanishPath
+    Español: spanishPath,
+    "Kreyòl Ayisyen" : htPath,
+    "Português" :ptPath
   }
-
   return (
     <div className="language-switcher d-flex justify-content-end">
       { Object.keys(languages).map( (lang) => {

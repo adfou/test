@@ -23,17 +23,17 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Begin = ({ data, initializeMenu ,setLang}) => {
-  const drupalMenu = useDrupalMenu('es');
-  setLang('es')
-  const fields = data.spanish;
-  data.spanish.path.alias = '/es-begin'
+  const drupalMenu = useDrupalMenu('ht');
+  setLang('ht')
+  const fields = data.haiten;
+  data.spanish.path.alias = '/ht-begin'
   return (
     <div onLoad={ initializeMenu(drupalMenu) }>
       <LargeHeader />
       <ContentContainer>
         <LanguageSwitcher
          englishPath={ data.english.path.alias }
-         spanishPath={ data.spanish.path.alias }
+         spanishPath={ "/es-begin" }
          htPath={ '/ht-begin' }
          ptPath={"/pt-begin"}
         />
@@ -43,7 +43,7 @@ const Begin = ({ data, initializeMenu ,setLang}) => {
       </ContentContainer>
       <div className="prev-next-buttons  text-center begin-button-margin "> {//fixed-bottom prev-next-buttons  text-center begin-button-margin"
       }
-        <NavButton path="/modo-de-uso">Empezar</NavButton>
+        <NavButton path="/kijan-pou-itilize">Kòmansman</NavButton>
       </div>
       <Footer className="fixed-bottom" />
     </div>
@@ -104,6 +104,7 @@ export const query = graphql`
           alias
         }
       }
+      
   }
 `
 export default connect(null, mapDispatchToProps)(Begin);

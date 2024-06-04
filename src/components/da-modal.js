@@ -37,16 +37,43 @@ const DAModal = ({ triggerModal, showModal, title, children ,lang}) => {
     </Modal>
   );}
   else{
+    let titleT = ""
+    let insideT = ""
+    let yes = "Si"
+    let non = "No"
+    let pathEnd ="/es-end"
+    switch (lang){
+      case ("es"):
+        titleT = "detener la ayuda a la decisión"
+        insideT = "¿Estás seguro de que quieres salir de la ayuda de decisión?"
+        pathEnd="/es-end"
+        break;
+      case ("ht"):
+        titleT = "Sispann èd pou pran desizyon an"
+        insideT = "Èske w si ou vle sòti nan èd pou pran desizyon an ?"
+        yes = "Wi"
+        non = "Non"
+        pathEnd="/ht-end"
+        break;
+      case ("pt-pt"):
+          titleT = "Parar o apoio de decisão"
+          insideT = "Tem a certeza de que deseja sair do auxílio à decisão?"
+          yes = "Sim"
+          non = "Não"
+          pathEnd="/pt-end"
+          break;
+
+    }
     return(
       <Modal show={ showModal } onHide={ triggerModal } centered>
     <Modal.Header>
-      <Modal.Title>{ "detener la ayuda a la decisión" }</Modal.Title>
+      <Modal.Title>{ titleT }</Modal.Title>
     </Modal.Header>
     <Modal.Body>
-      <p>{ "¿Estás seguro de que quieres salir de la ayuda de decisión?" }</p>
+      <p>{ insideT }</p>
       <div className="d-flex justify-content-between mt-4">
-        <Button onClick={ triggerModal } variant="da rounded-pill">No</Button>
-        <Button as={ Link } to="/es-end" variant="da rounded-pill">Sí</Button>
+        <Button onClick={ triggerModal } variant="da rounded-pill">{non}</Button>
+        <Button as={ Link } to={pathEnd} variant="da rounded-pill">{yes}</Button>
       </div>
     </Modal.Body>
   </Modal>

@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import NavButton from "./nav-button.js";
 import Container from "react-bootstrap/Container";
 import { Link } from "gatsby";
-import { ucFirst, urlify,ucFirst_es } from "../helpers";
+import { ucFirst, urlify,ucFirstMult } from "../helpers";
 
 const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat, setNewCurrent,lang }) => {
   const keys = Object.keys(prevNext);
+  var navContent = ''
   const link = {
     previous: retreat,
     next: advance
@@ -45,6 +46,19 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat, setNewCurrent,l
     </div>
   );}
   else {
+    let back = 'Voltar a "'
+    let backEnd='"'
+    switch(lang){
+      case "ht":
+        back="Retounen nan «"
+        backEnd="»"
+        break
+      
+    }
+    /*if(prevNext.current.title === "genes e os testes genéticos"){
+      prevNext.current.title = "Genes e testes";
+    }*/
+ 
     return (
       <div className="prev-next-buttons">
         <Container>
@@ -53,7 +67,7 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat, setNewCurrent,l
             <NavButton 
               onClick={ () => setNewCurrent(prevNext.current.path) }
               path={ prevNext.current.path }
-            >{ 'Volver a "' + ucFirst(prevNext.current.title) + '"' }</NavButton>
+            >{ back + ucFirst(prevNext.current.title) + backEnd }</NavButton>
             :
             <>
               { 
@@ -68,7 +82,7 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat, setNewCurrent,l
                         >
 
                           {
-                          prevNext[key].title === "End" ? "Finalizar" : ucFirst_es(key) }
+                          prevNext[key].title === "End" ? ucFirstMult("Finalizar",lang) : ucFirstMult(key,lang) }
                         </NavButton>
                     );
                   }

@@ -19,10 +19,19 @@ class NavManager {
       previous: this.menuItems[this.current -1 ] || false,
       next: this.menuItems[this.current + 1] || false
     };
-    if ( this.menuItems[0]['title'] =="How to use"){
-    this.menuItems.push(this.__setEnd());}
-    else{
-      this.menuItems.push(this._es_setEnd());
+    switch (this.menuItems[0]['title']) {
+      case "how to use":
+        this.menuItems.push(this.__setEnd());
+        break;
+      case 'Kijan pou itilize':
+        this.menuItems.push(this._ht_setEnd());
+        break;
+      case 'Como usar':
+          this.menuItems.push(this._pt_setEnd());
+          break;
+      default:
+        //spanish
+        this.menuItems.push(this._es_setEnd());
     }
   }
 
@@ -162,6 +171,23 @@ class NavManager {
       title: "End",
       weight: 999,
       path: "/es-end",
+      visited: false
+    }
+  }
+  _ht_setEnd = () => {
+    return {
+      title: "End",
+      weight: 999,
+      path: "/ht-end",
+      visited: false
+    }
+    
+  }
+  _pt_setEnd=()=>{
+    return {
+      title: "End",
+      weight: 999,
+      path: "/pt-end",
       visited: false
     }
   }

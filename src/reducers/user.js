@@ -20,14 +20,20 @@ const initialState = {
   }
 };
 
-const user = (state = initialState, action) => {
+const user = (state = initialState, action) => {  
   let stateCopy = JSON.parse(JSON.stringify(state));
+  let initialStateCopy = initialState
   switch(action.type) {
     case `SET_USER`:
-      return Object.assign({}, state, { ...action.userInfo });
+      
+      return Object.assign({}, initialState, { ...action.userInfo });
     case `SET_LANG`:{
       stateCopy.lang = action.lang;
       return Object.assign({}, state, { ...stateCopy });}
+    case "INITIAL":{
+      console.log("restart")
+      //return initialState;
+      }
     case `SET_NOTES`:
       stateCopy.notes = action.notes;
       return Object.assign({}, state, { ...stateCopy });
@@ -48,7 +54,8 @@ const user = (state = initialState, action) => {
         handleCheckbox(stateCopy, action.inputName, action.inputValue);
       }
       else {
-        if (action.inputName === "doYouWantGeneticTest") {
+        
+        if (action.inputName === "doYouWantGeneticTest" ) {
           
           handleVisibility(stateCopy, response);
         } 
@@ -82,10 +89,24 @@ const handleVisibility = (stateCopy, response) => {
 }
 
 const applyTestLogic = (stateCopy, response) => {
+  
+  console.log(response)
   var forceYes = "Yes, I want genetic testing";
+  switch(stateCopy.lang){
+    case "en":
+      forceYes = "Yes, I want genetic testing";
+      break
+    case "es":
+      forceYes = "Sí, quiero las pruebas genéticas"
+      break
+    case "ht":
+      forceYes = "Wi, mwen vle fè tès jenetik."
+      break
+  }
+  /*var forceYes = "Yes, I want genetic testing";
   if(stateCopy.lang ==='es'){
     forceYes = "Sí, quiero las pruebas genéticas"
-  }
+  }*/
   switch(response) {
     case "no":
     case "im":
@@ -105,7 +126,7 @@ const applyTestLogic = (stateCopy, response) => {
       stateCopy.test.doYouWantGeneticTest = forceYes;
       stateCopy.test.notReadyToDecide = [];
       break;
-    case "talk":
+    case "talk" || "hablar":
       if (stateCopy.test.notReadyToDecide.length > 0) {
         stateCopy.test.testTypes = null;
         stateCopy.test.notSureWhichTest = [];
@@ -123,3 +144,5 @@ const applyTestLogic = (stateCopy, response) => {
   
 
 export default user;
+
+

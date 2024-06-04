@@ -14,7 +14,6 @@ const VideoContent = ({ videoArr, caption, placeholder, cancer }) => {
         const fileStr = vidObj.uri.url.split("/").pop().split("_").pop();
        
         const fileCancer = fileStr.slice(0, fileStr.indexOf("."));
-        
         return fileCancer === cancer.toLowerCase();
       });
       if(cancerVid[0] != undefined){
@@ -41,7 +40,7 @@ const VideoContent = ({ videoArr, caption, placeholder, cancer }) => {
   }
 
   const video = getVideo(videoArr, cancer);
-
+ 
   return (video) && (
     <LeftMarginContainer>
       <video controls poster={ process.env.DRUPAL_API_URL + placeholder.uri.url }>
